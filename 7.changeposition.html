@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Float Positioning Example</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box left-float">Left Floating Box</div>
+        <div class="box right-float">Right Floating Box</div>
+    </div>
+</body>
+<style>
+
+/* Styling for the container */
+.container {
+    width: 100%;
+    overflow: hidden; /* To contain floated elements */
+}
+
+/* Styling for the boxes */
+.box {
+    width: 45%;
+    padding: 20px;
+    margin: 10px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* Float the first box to the left */
+.left-float {
+    float: left;
+}
+
+/* Float the second box to the right */
+.right-float {
+    float: right;
+}
+</style>
+</html>
