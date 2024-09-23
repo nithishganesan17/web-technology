@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji Positioning</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            position: relative;
+        }
+
+        .emoji {
+            font-size: 50px;
+            position: absolute;
+        }
+
+        .emoji1 {
+            top: 20px;
+            left: 20px;
+        }
+
+        .emoji2 {
+            top: 20px;
+            right: 20px;
+        }
+
+        .emoji3 {
+            bottom: 20px;
+            left: 20px;
+        }
+
+        .emoji4 {
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .emoji5 {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Emojis with absolute and fixed positioning -->
+    <div class="emoji emoji1">😀</div>
+    <div class="emoji emoji2">😂</div>
+    <div class="emoji emoji3">😍</div>
+    <div class="emoji emoji4">😎</div>
+    <div class="emoji emoji5">🤩</div>
+
+</body>
+</html>

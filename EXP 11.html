@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picture Slider with Radio Buttons</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .slider {
+            width: 300px;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slides {
+            display: flex;
+            width: 300%;
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .slides img {
+            width: 100%;
+            height: 200px;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        .navigation {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+        }
+
+        .navigation label {
+            display: block;
+            width: 10px;
+            height: 10px;
+            margin: 5px;
+            border-radius: 50%;
+            background-color: #ddd;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        input:checked + label {
+            background-color: #333;
+        }
+
+        #radio1:checked ~ .slides {
+            transform: translateX(0);
+        }
+
+        #radio2:checked ~ .slides {
+            transform: translateX(-100%);
+        }
+
+        #radio3:checked ~ .slides {
+            transform: translateX(-200%);
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <!-- Radio buttons -->
+        <input type="radio" name="slider" id="radio1" checked>
+        <input type="radio" name="slider" id="radio2">
+        <input type="radio" name="slider" id="radio3">
+
+        <!-- Slides -->
+        <div class="slides">
+            <img src="https://via.placeholder.com/300x200/ff7f7f/333333?text=Image+1" alt="Image 1">
+            <img src="https://via.placeholder.com/300x200/7f7fff/333333?text=Image+2" alt="Image 2">
+            <img src="https://via.placeholder.com/300x200/7fff7f/333333?text=Image+3" alt="Image 3">
+        </div>
+
+        <!-- Navigation buttons (mapped to radio buttons) -->
+        <div class="navigation">
+            <label for="radio1"></label>
+            <label for="radio2"></label>
+            <label for="radio3"></label>
+        </div>
+    </div>
+</body>
+</html>

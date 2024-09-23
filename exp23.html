@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Dishes</title>
+</head>
+<body>
+    <h2>Select Your Favorite Dishes</h2>
+    <form action="ConfirmedDishesServlet" method="post">
+        <input type="checkbox" name="dish" value="Pizza"> Pizza<br>
+        <input type="checkbox" name="dish" value="Pasta"> Pasta<br>
+        <input type="checkbox" name="dish" value="Burger"> Burger<br>
+        <input type="checkbox" name="dish" value="Salad"> Salad<br>
+        <input type="submit" value="Confirm Dishes">
+    </form>
+</body>
+</html>
+<script>
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class ConfirmedDishesServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+
+        // Get the selected dishes from the form
+        String[] selectedDishes = request.getParameterValues("dish");
+
+        // Display the confirmed dishes
+        out.println("<html><body>");
+        out.println("<h2>Confirmed Dishes</h2>");
+        
+        if (selectedDishes != null) {
+            out.println("<ul>");
+            for (String dish : selectedDishes) {
+                out.println("<li>" + dish + "</li>");
+            }
+            out.println("</ul>");
+        } else {
+            out.println("<p>No dishes selected!</p>");
+        }
+
+        out.println("</body></html>");
+        out.close();
+    }
+}
+
+</script>

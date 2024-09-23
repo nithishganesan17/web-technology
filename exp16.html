@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Form</title>
+</head>
+<body>
+    <h2>Enter Employee Details</h2>
+    <form action="employee" method="post">
+        Name: <input type="text" name="name" required><br><br>
+        Department: <input type="text" name="department" required><br><br>
+        Salary: <input type="text" name="salary" required><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+<script>
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/employee")
+public class EmployeeServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        
+        // Get employee details from the form
+        String name = request.getParameter("name");
+        String department = request.getParameter("department");
+        String salary = request.getParameter("salary");
+
+        // Set response content type
+        response.setContentType("text/html");
+
+        // Output the employee details
+        PrintWriter out = response.getWriter();
+        out.println("<html><body>");
+        out.println("<h2>Employee Details</h2>");
+        out.println("<p><strong>Name:</strong> " + name + "</p>");
+        out.println("<p><strong>Department:</strong> " + department + "</p>");
+        out.println("<p><strong>Salary:</strong> " + salary + "</p>");
+        out.println("</body></html>");
+    }
+}
+</script>

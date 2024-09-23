@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inline and Internal CSS Example</title>
+    
+    <!-- Internal CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #555;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #111;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with Internal CSS -->
+    <header>
+        <h1>My Web Page</h1>
+    </header>
+
+    <!-- Navigation bar with Internal CSS -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Gallery</a>
+        <a href="#">Contact</a>
+        <a href="#">About</a>
+    </nav>
+
+    <!-- Main Content Section with Internal and Inline CSS -->
+    <div class="container">
+        <h2>Welcome to My Website</h2>
+        
+        <!-- Paragraph with Inline CSS -->
+        <p style="color: #555; font-size: 18px;">This is an example of a web page that uses both inline and internal CSS. The navigation menu and the layout are styled using internal CSS, while certain elements, like this paragraph, are styled using inline CSS.</p>
+
+        <!-- Inline CSS for background color -->
+        <div style="background-color: #f0f0f0; padding: 20px; border: 1px solid #ccc;">
+            <h3 style="color: #333;">Inline CSS Example</h3>
+            <p>This section uses inline CSS for the background color and padding.</p>
+        </div>
+    </div>
+
+    <!-- Footer with Internal CSS -->
+    <footer>
+        <p>© 2024 My Web Page. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

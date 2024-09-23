@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absolute Position Example</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="box1">Element 1</div>
+    <div class="box2">Element 2</div>
+</body>
+</html>
+<style>
+body {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+.box1, .box2 {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+}
+
+.box1 {
+    background-color: #ff7f7f;
+    top: 50px;
+    left: 50px;
+}
+
+.box2 {
+    background-color: #7f7fff;
+    top: 50px;
+    left: 50px;
+    opacity: 0.8; /* Semi-transparent to show overlap */
+}
+</style>
