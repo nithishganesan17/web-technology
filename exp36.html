@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Image Example</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+</head>
+<body>
+    <div class="background-container">
+        <h1>Welcome to My Website</h1>
+        <p>This is an example of using a background image with external CSS.</p>
+    </div>
+</body>
+</html>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.background-container {
+    height: 100vh; /* Full viewport height */
+    background-image: url('https://example.com/path/to/your/image.jpg'); /* URL of your background image */
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the background image */
+    color: white; /* Text color */
+    display: flex; /* Use Flexbox for centering content */
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    text-align: center; /* Center text */
+}

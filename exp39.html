@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Result Portal</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h1>Student Result Portal</h1>
+        <form id="resultForm">
+            <label for="studentName">Student Name:</label>
+            <input type="text" id="studentName" required>
+
+            <label for="subject1">Subject 1 Grade:</label>
+            <input type="number" id="subject1" required>
+
+            <label for="subject2">Subject 2 Grade:</label>
+            <input type="number" id="subject2" required>
+
+            <label for="subject3">Subject 3 Grade:</label>
+            <input type="number" id="subject3" required>
+
+            <input type="submit" value="Submit">
+        </form>
+
+        <div id="result" class="result-section"></div>
+    </div>
+
+    <script src="script.js"></script> <!-- Link to external JavaScript file -->
+</body>
+</html>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 400px;
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    margin-top: 10px;
+    display: block;
+}
+
+input[type="text"], input[type="number"], input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.result-section {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #007BFF;
+    border-radius: 4px;
+    background-color: #e7f1ff;
+}
+document.getElementById('resultForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent the form from submitting
+
+    // Get the values from the input fields
+    const studentName = document.getElementById('studentName').value;
+    const subject1 = parseFloat(document.getElementById('subject1').value);
+    const subject2 = parseFloat(document.getElementById('subject2').value);
+    const subject3 = parseFloat(document.getElementById('subject3').value);
+
+    // Calculate average and grade
+    const average = (subject1 + subject2 + subject3) / 3;
+    let grade = '';
+
+    if (average >= 90) {
+        grade = 'A';
+    } else if (average >= 80) {
+        grade = 'B';
+    } else if (average >= 70) {
+        grade = 'C';
+    } else if (average >= 60) {
+        grade = 'D';
+    } else {
+        grade = 'F';
+    }
+
+    // Display the result
+    document.getElementById('result').innerHTML = `
+        <h3>Results for ${studentName}</h3>
+        <p>Average: ${average.toFixed(2)}</p>
+        <p>Grade: ${grade}</p>
+    `;
+});

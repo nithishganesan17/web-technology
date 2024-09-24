@@ -1,0 +1,30 @@
+<%@ page session="true" %>
+<%@ page import="java.util.concurrent.atomic.AtomicInteger" %>
+<%
+    // Application context attribute to store the client count
+    AtomicInteger clientCount = (AtomicInteger) application.getAttribute("clientCount");
+
+    // Initialize clientCount if not already present
+    if (clientCount == null) {
+        clientCount = new AtomicInteger(0);
+        application.setAttribute("clientCount", clientCount);
+    }
+
+    // Increment client count if it's a new session
+    if (session.isNew()) {
+        clientCount.incrementAndGet();
+    }
+%>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Counter</title>
+</head>
+<body>
+    <h1>Welcome to the Website!</h1>
+    <p>Number of clients viewed this website: <%= clientCount.get() %></p>
+</body>
+</html>

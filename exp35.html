@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positioning Elements</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+</head>
+<body>
+    <div class="parent">
+        <h1>Positioning Example</h1>
+        <div class="relative-positioned">
+            I am positioned relatively.
+        </div>
+        <div class="absolute-positioned">
+            I am positioned absolutely.
+        </div>
+    </div>
+</body>
+</html>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.parent {
+    position: relative; /* Set the parent to relative positioning */
+    width: 300px;
+    height: 200px;
+    border: 2px solid #007BFF;
+    padding: 10px;
+    background-color: #fff;
+    margin: 20px auto;
+}
+
+.relative-positioned {
+    position: relative; /* Relative positioning */
+    top: 20px; /* Move down by 20px from its original position */
+    left: 30px; /* Move right by 30px from its original position */
+    background-color: #28a745;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+}
+
+.absolute-positioned {
+    position: absolute; /* Absolute positioning */
+    top: 10px; /* Move down from the parent */
+    left: 10px; /* Move right from the parent */
+    background-color: #dc3545;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+}

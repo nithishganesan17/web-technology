@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration for Job Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Student Registration for Job Portal</h1>
+    <form id="registrationForm" onsubmit="return validateForm()">
+        <label for="studentName">Name:</label>
+        <input type="text" id="studentName" name="studentName" required>
+        <div class="error" id="nameError"></div>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <div class="error" id="emailError"></div>
+
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone" required>
+        <div class="error" id="phoneError"></div>
+
+        <label for="skills">Skills:</label>
+        <textarea id="skills" name="skills" required></textarea>
+        <div class="error" id="skillsError"></div>
+
+        <input type="submit" value="Register">
+    </form>
+
+    <script>
+        function validateForm() {
+            let isValid = true;
+
+            // Clear previous error messages
+            document.getElementById('nameError').innerText = '';
+            document.getElementById('emailError').innerText = '';
+            document.getElementById('phoneError').innerText = '';
+            document.getElementById('skillsError').innerText = '';
+
+            // Get values from the form fields
+            const name = document.getElementById('studentName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const skills = document.getElementById('skills').value.trim();
+
+            // Validate name
+            if (name.length < 3) {
+                document.getElementById('nameError').innerText = 'Name must be at least 3 characters long.';
+                isValid = false;
+            }
+
+            // Validate email
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailPattern.test(email)) {
+                document.getElementById('emailError').innerText = 'Please enter a valid email address.';
+                isValid = false;
+            }
+
+            // Validate phone number (assuming a 10-digit number)
+            const phonePattern = /^\d{10}$/;
+            if (!phonePattern.test(phone)) {
+                document.getElementById('phoneError').innerText = 'Phone number must be 10 digits long.';
+                isValid = false;
+            }
+
+            // Validate skills
+            if (skills.length < 10) {
+                document.getElementById('skillsError').innerText = 'Skills must be at least 10 characters long.';
+                isValid = false;
+            }
+
+            return isValid; // If all validations pass, return true to submit the form
+        }
+    </script>
+</body>
+</html>
